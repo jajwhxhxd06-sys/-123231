@@ -21,11 +21,17 @@ android {
         }
     }
 
+    // ОТКЛЮЧАЕМ NDK полностью
     sourceSets {
         main {
             jni.srcDirs = []
-            jniLibs.srcDirs = ['src/main/libs']
+            jniLibs.srcDirs = []
         }
+    }
+
+    // Запрещаем автоматический вызов ndk-build
+    packagingOptions {
+        exclude '**/lib/*.so'
     }
 }
 
